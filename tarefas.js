@@ -1,12 +1,13 @@
-//0
+
 let tarefas = [
     { nome: "Comprar leite", categoria: "compras", realizada: false },
     { nome: "Escutar música boa", categoria: "lazer", realizada: true }
 ];
 
+
 const listaTarefas = document.querySelector('ul#lista-tarefas');
 
-//1
+
 function InsereTarefaNaPagina (tarefa) {
     const elementos = document.createElement('li');
     
@@ -30,4 +31,31 @@ function InsereTarefaNaPagina (tarefa) {
 
 
 listaTarefas.innerHTML = '';
-tarefas.forEach(insereTarefaNaPagina);
+tarefas.forEach(InsereTarefaNaPagina);
+
+
+const nomeNovaTarefa = document.querySelector('input#nova-tarefa-nome');
+const novaCaregoriaTarefa = document.querySelector('select#nova-tarefa-categoria');
+const btnNovaTarefa = document.querySelector("#incluir-nova-tarefa");
+
+function IncluirNovaTarefa () {
+    const nome = nomeNovaTarefa.value;
+    if(nome){
+        const tarefa = { 
+            nome: nome, 
+            categoria: novaCaregoriaTarefa.value, 
+            realizada: false 
+        };
+
+        tarefas.push(tarefa);
+        InsereTarefaNaPagina(tarefa);
+    
+        nomeNovaTarefa.value = '';
+        nomeNovaTarefa.focus();
+
+    }
+}
+
+btnNovaTarefa.addEventListener("click", IncluirNovaTarefa);
+
+
