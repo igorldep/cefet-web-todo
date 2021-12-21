@@ -59,3 +59,30 @@ function IncluirNovaTarefa () {
 btnNovaTarefa.addEventListener("click", IncluirNovaTarefa);
 
 
+const filtroCategoria = document.querySelector("#filtro-de-categoria");
+
+filtroCategoria.addEventListener("change", e => {
+    const categoriaSelecionada = e.currentTarget.value;
+    const listaTarefas = document.querySelectorAll(".item-tarefa");
+
+    //Antigo Valor: "" -> Antigo Vazio
+    if(categoriaSelecionada === "todas"){ 
+        listaTarefas.forEach(t => {
+            t.classList.remove('retido-no-filtro');
+        });
+    }
+
+    const tarefasFiltradas = Array.from(listaTarefas).filter(evt => {
+        return evt.classList.contains(`categoria-${categoriaSelecionada}`);
+    });
+
+    listaTarefas.forEach(t => {
+        t.classList.add('retido-no-filtro');
+    });
+    tarefasFiltradas.forEach(t => {
+        t.classList.remove('retido-no-filtro');
+    })
+});
+
+
+
