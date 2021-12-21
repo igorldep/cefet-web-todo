@@ -1,4 +1,3 @@
-
 let tarefas = [
     { nome: "Comprar leite", categoria: "compras", realizada: false },
     { nome: "Escutar música boa", categoria: "lazer", realizada: true }
@@ -14,6 +13,7 @@ function InsereTarefaNaPagina (tarefa) {
     elementos.classList.add('item-tarefa');
     elementos.classList.add(`categoria-${tarefa.categoria}`);
 
+    // Exercício 5
     elementos.addEventListener('click', () => {
         elementos.classList.toggle('marcado');
         tarefa.realizada = !tarefa.realizada;
