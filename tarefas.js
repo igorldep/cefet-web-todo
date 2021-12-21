@@ -86,3 +86,8 @@ filtroCategoria.addEventListener("change", e => {
 
 
 
+nomeNovaTarefa.addEventListener("keyup", e => {
+    if(e.key === "Enter"){
+        IncluirNovaTarefa(e);
+    }
+});
